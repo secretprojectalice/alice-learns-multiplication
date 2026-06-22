@@ -1,0 +1,37 @@
+import { useState } from 'react'
+import { Factor, AppView } from './types'
+import { MainPage } from './components/MainPage'
+import { PracticeSetup } from './components/PracticeSetup'
+import { FlashcardSession } from './components/FlashcardSession'
+
+export default function App() {
+  const [view, setView] = useState<AppView>('main')
+  const [sessionFactors, setSessionFactors] = useState<Factor[]>([])
+
+  function handleStartSession(factors: Factor[]) {
+    setSessionFactors(factors)
+    setView('session')
+  }
+
+  if (view === 'session') {
+    return (
+      <FlashcardSession
+        factors={sessionFactors}
+        operandMin={1}
+        operandMax={10}
+        onDone={() => setView('main')}
+      />
+    )
+  }
+
+  if (view === 'setup') {
+    return (
+      <PracticeSetup
+        onStart={handleStartSession}
+        onBack={() => setView('main')}
+      />
+    )
+  }
+
+  return <MainPage onPractice={() => setView('setup')} />
+}
