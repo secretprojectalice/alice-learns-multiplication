@@ -1,0 +1,84 @@
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: system-ui, sans-serif;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+  color: #222;
+}
+
+.empty {
+  color: #888;
+}
+
+.day {
+  margin-bottom: 1.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dayHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 1rem;
+  background: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.dayDate {
+  font-weight: 600;
+  color: #333;
+}
+
+.dayTotal {
+  font-weight: 700;
+  color: #1a73e8;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table th {
+  text-align: left;
+  padding: 0.4rem 1rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #888;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.table td {
+  padding: 0.5rem 1rem;
+  color: #333;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.incomplete td {
+  color: #aaa;
+  font-style: italic;
+}
+
+.state {
+  padding: 3rem;
+  text-align: center;
+  color: #666;
+}
+
+.error {
+  color: #c00;
+}

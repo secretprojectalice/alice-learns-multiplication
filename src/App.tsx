@@ -3,8 +3,11 @@ import { Factor, AppView } from './types'
 import { MainPage } from './components/MainPage'
 import { PracticeSetup } from './components/PracticeSetup'
 import { FlashcardSession } from './components/FlashcardSession'
+import { AdminPage } from './components/AdminPage'
+import { useSessionTracking } from './hooks/useSessionTracking'
 
-export default function App() {
+function LearningApp() {
+  useSessionTracking()
   const [view, setView] = useState<AppView>('main')
   const [sessionFactors, setSessionFactors] = useState<Factor[]>([])
 
@@ -34,4 +37,10 @@ export default function App() {
   }
 
   return <MainPage onPractice={() => setView('setup')} />
+}
+
+export default function App() {
+  const isAdmin =
+    window.location.pathname.split('/').filter(Boolean).at(-1) === 'admin'
+  return isAdmin ? <AdminPage /> : <LearningApp />
 }
