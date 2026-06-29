@@ -40,7 +40,6 @@ function LearningApp() {
 }
 
 export default function App() {
-  const segments = window.location.pathname.split('/').filter(Boolean)
-  const isAdmin = segments[segments.length - 1] === 'admin'
+  const isAdmin = window.location.hash === '#admin'
   return isAdmin ? <AdminPage /> : <LearningApp />
 }
